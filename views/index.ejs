@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>Banque Application</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="voting.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Banque Application</h1>
+        <ul class='account'>
+            <% account.forEach(function(account, index){ %>
+            <li class='account' id='<%= account.id %>'>
+                <span class='position'><%= index+1 %></span>
+                <div class='vote'>
+                    <div class='btnVote'>
+                        <span class='account'><i class='fa fa-plus fa-2x'></i></span>
+                        <span class='account'><%= account.soldes %></span>
+                    </div>
+                <span class='account'><%= account.solde %></span>
+            </li>
+            <% }) %>
+        </ul>
+        <form id='form' method='post'>
+            <h1>Ajouter un compte</h1>
+            <input type='text' id='title' placeholder='Ajout compte' />	
+            <button id='btnSubmit' type='submit'>Ajout</button>
+        </form>
+
+        <form id='form_test' method='post'>
+            <h1>Test transaction scheduling</h1>
+            <button id='btnSubmittest' type='submit'>Debut test</button>
+            <div id='log_test'>Ici sera ecrit le temp + les requetes schédulé</div>
+        </form>
+
+    </body>
+</html>
